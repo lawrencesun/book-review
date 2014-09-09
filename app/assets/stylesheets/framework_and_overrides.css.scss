@@ -9,7 +9,7 @@
 
 /* universal */
 
-$blue: #5077d7;
+$blue: #51aded;
 
 html {
   overflow-y: scroll;
@@ -228,6 +228,21 @@ table.comments {
   }
 }
 
+/* checkbox */
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  margin-left: 0px;
+}
+
+
+.btn-outline {
+  color: $blue;
+  background-color: transparent;
+  border-color: $blue;
+
+}
 
 // make all images responsive by default
 img {
@@ -290,7 +305,7 @@ section {
 }
 .authform .button {
   @extend .btn;
-  @extend .btn-primary;
+  @extend .btn-success;
 }
 .authform fieldset {
   @extend .well;
