@@ -1,4 +1,7 @@
 class Book < ActiveRecord::Base
+	has_many :book_categories
+	has_many :categories, through: :book_categories
+
 
 	validates :name, presence: true, uniqueness: true
 	validates :author, presence: true

@@ -1,0 +1,8 @@
+<% object.each do |book| %>
+	<p>
+		<%= link_to "#{book.name}", book_path(book) %><br>
+		<% book.categories.each do |category| %>
+	    <%= link_to category.name, category_path(category), class: "label" %>
+	  <% end %>
+	</p>
+<% end %>

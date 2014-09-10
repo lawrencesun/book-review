@@ -1,0 +1,22 @@
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-3">
+			<p> sidebar </p>
+		</div>
+		
+
+		<div class="col-md-9">		
+			<h4><%= @category.name %></h4><hr>
+			<div class="well">
+				<div id="posts">
+					<%= render 'shared/books', object: @books %>
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</div>
+</div>
