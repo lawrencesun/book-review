@@ -10,15 +10,25 @@
 					<p><%= @book.description %></p>
 			</div>
 			
-
 			<div class="well well-sm">
-				<p> comment </p>
+				<p> Comment </p><hr/>
+				<div id="comments">
+					<%= render 'shared/comments', object: @comments %>
+				</div>
+				<br/>
+				<%= form_for [@book, @comment] do |f| %>
+					<%= render 'layouts/error', object: @comment %>
+					<div class="form-group">
+						<%= f.text_area :body, rows: 10, class: "form-control" %>
+					</div>
+					<%= f.submit "New Comment", class: "btn btn-primary" %>
+				<% end %>
 			</div>
-		</div>
+		</div> <!-- col-md-9 -->
 
 		<div class="col-md-3">
   		<p> sidebar </p>
   	</div>  
 
-	</div>
+	</div> <!-- row -->
 </div>

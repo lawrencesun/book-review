@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :users
 
-  resources :books
+  resources :books do
+  	resources :comments
+  end
 
 
   resources :categories

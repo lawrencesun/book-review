@@ -1,0 +1,11 @@
+<% if object.any? %>
+	<% object.each do |comment| %>
+		<% unless comment.body.blank? %>
+			<table class="comments">
+				<p><%= comment.body %></p>
+			</table>
+
+		<% end %> <!--end of unless-->
+
+	<% end %> <!-- end of do -->
+<% end %> <!-- end of if-->
