@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
 
 	def create
 		@comment = @book.comments.build(comment_params)
+		@comment.user = current_user
 		if @comment.save
 			flash[:notice] = "Successfully Commented."
 			redirect_to @book
