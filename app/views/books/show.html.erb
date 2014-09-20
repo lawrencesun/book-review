@@ -13,7 +13,7 @@
 			<div class="well well-sm">
 				<p> Comment </p><hr/>
 				<div id="comments">
-					<%= render 'shared/comments', object: @comments %>
+					<%= render 'shared/comments', object: @book.comments %>
 				</div>
 				<br/>
 				<%= form_for [@book, @comment] do |f| %>

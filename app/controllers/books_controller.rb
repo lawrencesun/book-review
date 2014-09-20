@@ -8,11 +8,10 @@ class BooksController < ApplicationController
 
 	def show
 		@comment = Comment.new
-		@comments = @book.comments
-			respond_to do |format|
-				format.html
-				format.js
-			end
+		respond_to do |format|
+			format.html
+			format.js
+		end
 	end
 
 	def new
