@@ -2,7 +2,7 @@
 	<% object.each do |comment| %>
 		<% unless comment.body.blank? %>
 			<table class="comments">
-				<p><%= comment.body %></p>
+				<p><%= markdown(comment.body) %></p>
 			</table>
 
 		<% end %> <!--end of unless-->

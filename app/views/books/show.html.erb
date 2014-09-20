@@ -7,7 +7,7 @@
 					<h3><%= @book.name %></h3>
 					<p> image </p>
 					<p><%= @book.author %></p>
-					<p><%= @book.description %></p>
+					<p><%= markdown(@book.description) %></p>
 			</div>
 			
 			<div class="well well-sm">
