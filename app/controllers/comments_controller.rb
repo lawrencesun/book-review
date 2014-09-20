@@ -13,7 +13,8 @@ class CommentsController < ApplicationController
 			flash[:notice] = "Successfully Commented."
 			redirect_to @book
 		else
-			render 'books/show'
+			flash[:error] = "Can't be blank."
+			redirect_to @book
 		end
 	end
 

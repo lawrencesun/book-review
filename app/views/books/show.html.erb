@@ -13,7 +13,10 @@
 			<div class="well well-sm">
 				<p> Comment </p><hr/>
 				<div id="comments">
-					<%= render 'shared/comments', object: @book.comments %>
+					<%= render 'shared/comments', object: @comments %>
+				</div>
+				<div id="paginator" class="pull-right">
+					<%= paginate @comments, remote: true %>
 				</div>
 				<br/>
 				<%= form_for [@book, @comment] do |f| %>

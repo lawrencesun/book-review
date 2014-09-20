@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
 
 	def show
 		@category	= Category.find(params[:id])
-		@books = @category.books.order('created_at DESC')
+		@books = @category.books.order('created_at DESC').page(params[:page]).per(15)
 
 		respond_to do |format|
 			format.html 	
