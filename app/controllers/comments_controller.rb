@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
 	before_action :get_book
 	before_action :find_comment, only:[:edit, :update, :destroy]
-
-
+	before_filter :authenticate_user!
+	
 	def new
 	end
 

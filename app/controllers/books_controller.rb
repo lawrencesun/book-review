@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+	before_filter :authenticate_user!, except:[:show, :index]
 	before_action :find_book, only:[:show, :edit, :update, :destroy]
 
 

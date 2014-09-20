@@ -5,10 +5,5 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true, length: { maximum: 15 }
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
-  
-  def to_param
-		self.name = name.downcase
-		name
-	end
-
+  	
 end
