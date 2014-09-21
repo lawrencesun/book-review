@@ -7,7 +7,7 @@ class Book < ActiveRecord::Base
 		:url => "/assets/books/:id/:style/:basename.:extension",
   	:path => ":rails_root/public/assets/books/:id/:style/:basename.:extension"
 	validates_attachment :photo, 
-  :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] },
+  :content_type => { :content_type => ["image/jpeg", "image/jpg", "image/gif", "image/png"] },
   :size => { :less_than => 5.megabytes }
 
 
