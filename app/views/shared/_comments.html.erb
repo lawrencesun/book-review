@@ -2,7 +2,26 @@
 	<% object.each do |comment| %>
 		<% unless comment.body.blank? %>
 			<table class="comments">
-				<p><%= markdown(comment.body) %></p>
+				<tr class="comments">
+					<td class="avatar">
+						<span class="pull-left"><%= image_tag comment.user.avatar.url(:small), class: "avatar-normal" %></span>
+					</td>
+
+					<td class="content">
+						<header>
+							<div class="pull-left">
+								<small>
+									<%= link_to comment.user.name, user_path(comment.user) %>
+									<span class="timestamp">
+										<%= time_ago_in_words(comment.created_at) %>
+									</span>
+								</small>
+							</div>
+							</br>
+						</header>
+						<p><%= markdown(comment.body) %></p>
+					</td>
+				</tr>
 			</table>
 
 		<% end %> <!--end of unless-->

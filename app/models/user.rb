@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :small => "100x100#", :thumb => "64x64#" },
+  has_attached_file :avatar, :styles => { :medium => "300x300#", :small => "150x150#", :thumb => "64x64#" },
 		:default_url => 'missing.jpg',
 		:url => "/assets/users/:id/:style/:basename.:extension",
   	:path => ":rails_root/public/assets/users/:id/:style/:basename.:extension"
