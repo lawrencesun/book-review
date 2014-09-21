@@ -22,6 +22,7 @@ gem 'faker', '1.1.2'
 gem 'kaminari'
 gem 'redcarpet'
 
+gem 'paperclip', '~> 4.2'
 
 
 

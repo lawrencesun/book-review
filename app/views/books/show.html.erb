@@ -5,7 +5,7 @@
   	<div class="col-md-9">
 			<div class="well">
 					<h3><%= @book.name %></h3>
-					<p> image </p>
+					<%= image_tag @book.photo.url(:medium) %>
 					<p><%= @book.author %></p>
 					<p><%= markdown(@book.description) %></p>
 			</div>
@@ -31,6 +31,7 @@
 
 		<div class="col-md-3">
   		<p> sidebar </p>
+  		<%= link_to t('edit'), edit_book_path(@book), class: "btn btn-info" %> | <%= link_to t('delete'), book_path(@book), method: 'delete', data: {confirm: 'comfirm?'}, class: "btn btn-danger" %>
   	</div>  
 
 	</div> <!-- row -->

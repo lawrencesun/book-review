@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140914082330) do
+ActiveRecord::Schema.define(version: 20140921030627) do
 
   create_table "book_categories", force: true do |t|
     t.integer  "book_id"
@@ -24,9 +24,12 @@ ActiveRecord::Schema.define(version: 20140914082330) do
     t.string   "name"
     t.string   "author"
     t.text     "description"
-    t.string   "img_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "categories", force: true do |t|
