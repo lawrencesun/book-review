@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   resources :users
 
   resources :books do
+
+  	collection do
+      get 'active'
+    end
+    
   	resources :comments
   end
 

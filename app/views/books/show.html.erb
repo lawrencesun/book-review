@@ -28,7 +28,8 @@
 			
 
 			<div class="well well-sm">
-				<h4> &nbsp; Comment </h4><hr/>
+				<h4> &nbsp; Comment <span class="badge"><%= @book.comments_count %></span></h4>
+				<hr/>
 				<div id="comments">
 					<%= render 'shared/comments', object: @comments %>
 				</div>

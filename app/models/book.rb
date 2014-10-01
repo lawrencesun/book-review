@@ -10,6 +10,7 @@ class Book < ActiveRecord::Base
   :content_type => { :content_type => ["image/jpeg", "image/jpg", "image/gif", "image/png"] },
   :size => { :less_than => 5.megabytes }
 
+  scope :active, -> { where("comments_count >= ?", 5) }
 
 	validates :name, presence: true, uniqueness: true
 	validates :author, presence: true

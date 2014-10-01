@@ -7,6 +7,7 @@
 
 			<td class="content">
 				<header>
+					<span class="badge pull-right"><%= book.comments_count %></span>
 					<h4><%= link_to "#{book.name}", book_path(book) %></h4>
 					<small>Author: &nbsp;<%= book.author %></small><br>
 				</header>

@@ -48,6 +48,11 @@ class BooksController < ApplicationController
 		redirect_to @books
 	end
 
+	def active
+    @books = Book.active.order('created_at DESC').page(params[:page])
+    render action: 'index'
+	end
+
 	private
 		def find_book
 			@book = Book.find(params[:id])
