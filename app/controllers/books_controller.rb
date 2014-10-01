@@ -4,7 +4,11 @@ class BooksController < ApplicationController
 
 
 	def index
-		@books = Book.all
+		@books = Book.all.order('created_at DESC').page(params[:page]).per(10)
+		respond_to do |format|
+			format.html 	
+			format.js
+		end
 	end
 
 	def show
