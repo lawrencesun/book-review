@@ -20,8 +20,9 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= t('.categories') %> <b class="caret"></b></a>
              
               <ul class="dropdown-menu">
-                <li>Category 1</li>
-                <li>Category 2</li>
+                <% @categories.each do |cat| %>
+                  <li><%= link_to cat.name, category_path(cat) %></li>  
+                <% end %>
               </ul>
 
           </li>
