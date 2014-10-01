@@ -3,7 +3,7 @@ class Book < ActiveRecord::Base
 	has_many :categories, through: :book_categories
 	has_many :comments, dependent: :destroy
 
-	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" },
+	has_attached_file :photo, :styles => { :medium => "212x316!", :thumb => "106x158!" },
 		:url => "/assets/books/:id/:style/:basename.:extension",
   	:path => ":rails_root/public/assets/books/:id/:style/:basename.:extension"
 	validates_attachment :photo, 

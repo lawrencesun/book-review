@@ -1,13 +1,7 @@
 <div class="container">
-
 	<div class="row">
-		<div class="col-md-3">
-			<p> sidebar </p>
-		</div>
-		
-
-		<div class="col-md-9">		
-			<h4><%= @category.name %></h4><hr>
+		<div class="col-md-9">	
+			<h4><%= @category.name %></h4><hr>	
 			<div class="well">
 				<div id="books">
 					<%= render 'shared/books', object: @books %>
@@ -15,12 +9,12 @@
 				<div id="paginator" class="pull-right">
 					<%= paginate @books, remote: true %>
 				</div>
-				</div>
-			</div>
-		</div>
+			</div> <!-- well -->
+		</div> <!-- col-md-9 -->
 
+		<div class="col-md-3">
+			<p> sidebar </p>
+		</div> <!-- col-md-3 -->
 
-
-
-	</div>
-</div>
+	</div> <!-- row -->
+</div> <!-- container -->

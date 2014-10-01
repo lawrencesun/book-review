@@ -1,8 +1,17 @@
 <% object.each do |book| %>
-	<p>
-		<%= link_to "#{book.name}", book_path(book) %><br>
-		<% book.categories.each do |category| %>
-	    <%= link_to category.name, category_path(category), class: "label" %>
-	  <% end %>
-	</p>
-<% end %>
+	<table class="books">
+		<tr class="books">
+			<td class="cover">
+				<span class="pull-left"><%= image_tag book.photo.url(:thumb) %></span>
+			</td>
+
+			<td class="content">
+				<header>
+					<h4><%= link_to "#{book.name}", book_path(book) %></h4>
+					<small>Author: &nbsp;<%= book.author %></small><br>
+				</header>
+				<p><%= markdown(book.description) %></p>
+	  	</td>
+		</tr>
+	</table>
+<% end %> <!-- object -->
