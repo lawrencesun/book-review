@@ -3,3 +3,13 @@
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
 <%= link_to 'Edit account', edit_user_registration_path %>
+<hr>
+<% @user.microposts.each do |m| %>
+	<%= m.content %>
+<% end %>
+
+
+<%= form_for(@micropost) do |f| %>
+<%= render 'layouts/error', object: f.object %> <div class="field">
+<%= f.text_area :content, placeholder: "Compose new micropost..." %> </div>
+<%= f.submit "Post", class: "btn btn-large btn-primary" %> <% end %>
