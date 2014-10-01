@@ -4,17 +4,31 @@
 		
   	<div class="col-md-9">
 			<div class="well">
-					<h3><%= @book.name %></h3>
-					<% @book.categories.each do |category| %>
-	      		<%= link_to category.name, category_path(category), class: "label" %>
-	      	<% end %>
-					<%= image_tag @book.photo.url(:medium) %>
-					<p><%= @book.author %></p>
-					<p><%= markdown(@book.description) %></p>
-			</div>
+				<table class="books">
+					<tr class="books">
+						<td class="cover">
+							<span class="pull-left"><%= image_tag @book.photo.url(:thumb) %></span>
+						</td>
+
+						<td class="content">
+							<header>
+							<h4><%= @book.name %></h4>
+							<small>Author: &nbsp;<%= @book.author %></small><br>
+							<small>Categories: </small>
+							<% @book.categories.each do |category| %>
+	      				<%= link_to category.name, category_path(category), class: "label" %>
+	      			<% end %>
+							</header>
+	  				</td>
+					</tr>
+				</table>
+				<h4>Description</h4>
+				<p><%= markdown(@book.description) %></p>
+			</div> <!--well-->
 			
+
 			<div class="well well-sm">
-				<p> Comment </p><hr/>
+				<h4> &nbsp; Comment </h4><hr/>
 				<div id="comments">
 					<%= render 'shared/comments', object: @comments %>
 				</div>
@@ -29,13 +43,13 @@
 					</div>
 					<%= f.submit "New Comment", class: "btn btn-primary" %>
 				<% end %>
-			</div>
+			</div> <!-- well well-sm -->
 		</div> <!-- col-md-9 -->
 
 		<div class="col-md-3">
   		<p> sidebar </p>
   		<%= link_to t('edit'), edit_book_path(@book), class: "btn btn-info" %> | <%= link_to t('delete'), book_path(@book), method: 'delete', data: {confirm: 'comfirm?'}, class: "btn btn-danger" %>
-  	</div>  
+  	</div> <!-- col-md-3 --> 
 
 	</div> <!-- row -->
 </div>
