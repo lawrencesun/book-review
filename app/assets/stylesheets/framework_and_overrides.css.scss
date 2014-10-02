@@ -270,6 +270,10 @@ table.books {
 
 }
 
+.midwidth {
+  min-width: 0px;
+}
+
 // make all images responsive by default
 img {
   @extend .img-responsive;
