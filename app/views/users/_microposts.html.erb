@@ -1,9 +1,24 @@
-<% if object.any? %>
-	<% object.each do |m| %>
-		<%= markdown(m.content) %>
-		<small class="timestamp">
-			<%= m.created_at.to_formatted_s(:db) %>
-		</small>
-		<hr>
-	<% end %> <!-- @user.microposts.each -->
-<% end %><!-- end of if -->
+<% object.each do |m| %>
+	<span class="pull-right">
+		<div class="dropdown">
+			<a class="" data-toggle="dropdown" href="#">
+   			<span class="fa fa-bars"></span>
+   		</a>
+			<ul class="dropdown-menu">
+				<li><%= link_to edit_micropost_path(m) do %>
+				<i class="fa fa-pencil"></i> Edit
+				<% end %> </li>
+				<li><%= link_to micropost_path(m), method: 'delete', data: { confirm: "Are you sure?" } do %>
+					<i class="fa fa-trash-o"></i> Delete
+				<% end %> </li>
+			</ul> <!-- dropdown-menu -->
+		</div> <!-- btn-group open -->
+
+	</span> <!-- pull-right -->
+	<%= markdown(m.content) %>
+	<small class="timestamp">
+		<%= m.created_at.to_formatted_s(:db) %>
+	</small>
+	<hr>
+<% end %> <!-- @user.microposts.each -->
+

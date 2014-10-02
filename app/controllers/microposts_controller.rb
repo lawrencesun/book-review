@@ -1,4 +1,5 @@
 class MicropostsController < ApplicationController
+	before_action :find_micropost, only:[:edit, :update, :destroy]
 
 	def create
 		@micropost = current_user.microposts.build(micropost_params)
@@ -7,7 +8,7 @@ class MicropostsController < ApplicationController
 			redirect_to user_path(current_user)
 		else
 			flash[:error] = "Somethins's wrong."
-			render user_path(current_user)
+			redirect_to user_path(current_user)
 		end
 	end
 
@@ -16,7 +17,7 @@ class MicropostsController < ApplicationController
 
 	def update
 		if @micropost.update(micropost_params)
-			flash[:success] = "Updated."
+			flash[:notice] = "Updated."
 			redirect_to user_path(current_user)
 		else 
 			render 'edit'
@@ -25,12 +26,16 @@ class MicropostsController < ApplicationController
 
 	def destroy
 		@micropost.destroy
-		flash[:success] = "Deleted"
-		redirect_to @user
+		flash[:success] = "Deleted."
+		redirect_to user_path(current_user)
 	end
 
 	private
 		def micropost_params
 			params.require(:micropost).permit!
+		end
+
+		def find_micropost
+			@micropost = Micropost.find(params[:id])
 		end
 end

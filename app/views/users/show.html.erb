@@ -12,7 +12,6 @@
   	<div class="col-md-6">
 			<div class="well">
 				<%= form_for(@micropost) do |f| %>
-					<%= render 'layouts/error', object: @micropost %> 
 					<div class="form-group">
 						<%= f.text_area :content, rows: 5, placeholder: "Compose new micropost...", class: "form-control"%>
 					</div>
@@ -21,14 +20,16 @@
 				<br>
 			</div> <!-- well -->
 
-			<div class="well">
-				<div id="microposts">
-					<%= render 'microposts', object: @microposts %>
-				</div> <!-- div microposts -->	
-				<div id="paginator" class="pull-right">
-					<%= paginate @microposts, remote: true %>
-				</div>
-			</div> <!-- well -->
+			<% if @microposts.any? %>
+				<div class="well">
+					<div id="microposts">
+						<%= render 'microposts', object: @microposts %>
+					</div> <!-- div microposts -->	
+					<div id="paginator" class="pull-right">
+						<%= paginate @microposts, remote: true %>
+					</div>
+				</div> <!-- well -->
+			<% end %> <!-- end of @microposts.any? -->
 		</div> <!-- col-md-6 -->
 
 
