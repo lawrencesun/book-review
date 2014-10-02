@@ -1,15 +1,43 @@
-<h3>User</h3>
-<%= image_tag @user.avatar.url(:thumb) %>
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
-<%= link_to 'Edit account', edit_user_registration_path %>
-<hr>
-<% @user.microposts.each do |m| %>
-	<%= m.content %>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="well">
+				<%= image_tag @user.avatar.url(:thumb) %>
+				<p>User: <%= @user.name %></p>
+				<p>Email: <%= @user.email if @user.email %></p>
+				<%= link_to 'Edit account', edit_user_registration_path %>
+			</div>
+		</div> <!-- col-md-3 -->
+
+  	<div class="col-md-6">
+			<div class="well">
+				<%= form_for(@micropost) do |f| %>
+					<%= render 'layouts/error', object: @micropost %> 
+					<div class="form-group">
+						<%= f.text_area :content, rows: 5, placeholder: "Compose new micropost...", class: "form-control"%>
+					</div>
+					<%= f.submit "Post", class: "btn btn-success pull-right" %>
+				<% end %> <!-- end of form_for @micropost -->
+				<br>
+			</div> <!-- well -->
+
+			<div class="well">
+				<div id="microposts">
+					<%= render 'microposts', object: @microposts %>
+				</div> <!-- div microposts -->	
+				<div id="paginator" class="pull-right">
+					<%= paginate @microposts, remote: true %>
+				</div>
+			</div> <!-- well -->
+		</div> <!-- col-md-6 -->
 
 
-<%= form_for(@micropost) do |f| %>
-<%= render 'layouts/error', object: f.object %> <div class="field">
-<%= f.text_area :content, placeholder: "Compose new micropost..." %> </div>
-<%= f.submit "Post", class: "btn btn-large btn-primary" %> <% end %>
+
+	</div> <!-- row -->
+</div> <!-- container -->
+
+
+
+
+
+

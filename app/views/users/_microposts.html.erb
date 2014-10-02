@@ -1,0 +1,9 @@
+<% if object.any? %>
+	<% object.each do |m| %>
+		<%= markdown(m.content) %>
+		<small class="timestamp">
+			<%= m.created_at.to_formatted_s(:db) %>
+		</small>
+		<hr>
+	<% end %> <!-- @user.microposts.each -->
+<% end %><!-- end of if -->

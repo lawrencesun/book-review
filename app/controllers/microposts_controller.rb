@@ -7,7 +7,7 @@ class MicropostsController < ApplicationController
 			redirect_to user_path(current_user)
 		else
 			flash[:error] = "Somethins's wrong."
-			redirect_to user_path(current_user)
+			render user_path(current_user)
 		end
 	end
 
@@ -25,7 +25,7 @@ class MicropostsController < ApplicationController
 
 	def destroy
 		@micropost.destroy
-		flash[:success] = t('flash.comment.destroy')
+		flash[:success] = "Deleted"
 		redirect_to @user
 	end
 
