@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001152057) do
+ActiveRecord::Schema.define(version: 20141003002328) do
 
   create_table "book_categories", force: true do |t|
     t.integer  "book_id"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20141001152057) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "microposts_count",       default: 0,  null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

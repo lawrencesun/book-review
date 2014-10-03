@@ -9,6 +9,6 @@ class AddCommentsCountToBook < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :bosts, :comments_count
+    remove_column :books, :comments_count
   end
 end
