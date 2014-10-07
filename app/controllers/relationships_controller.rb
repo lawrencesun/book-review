@@ -1,6 +1,6 @@
 class RelationshipsController < ApplicationController
 	def create
-    @user = User.find(params[:followed_id])
+    @user = User.find(params[:relationship][:followed_id])
     current_user.follow(@user)
     respond_to do |format|
       format.html { redirect_to @user }

@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="well">
+				<%= image_tag @user.avatar.url(:thumb) %>
+				<p>Microposts: <%= @user.microposts_count %></p>
+				<%= render 'shared/stats'%>
+				<%= render 'follow_form'%>
+			</div>
+		</div> <!-- col-md-3 -->
+
+  	<div class="col-md-6">
+			<div class="well">
+				<% if @users.any? %> 
+				<ul class="users">
+					<% @users.each do |user| %>
+            <%= user %>
+          <% end %>
+				</ul>
+				<div id="paginator" class="pull-right">
+					<%= paginate @users, remote: true %>
+				</div>
+				<% end %>
+			</div> <!-- well -->
+		</div> <!-- col-md-6 -->
+
+
+
+	</div> <!-- row -->
+</div> <!-- container -->
+

@@ -7,6 +7,7 @@
 				<p>Email: <%= @user.email if @user.email %></p>
 				<p>Microposts: <%= @user.microposts_count %></p>
 				<%= render 'shared/stats'%>
+				<%= render 'follow_form'%>
 			</div>
 		</div> <!-- col-md-3 -->
 
