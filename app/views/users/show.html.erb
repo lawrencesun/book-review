@@ -6,7 +6,7 @@
 				<p>User: <%= @user.name %></p>
 				<p>Email: <%= @user.email if @user.email %></p>
 				<p>Microposts: <%= @user.microposts_count %></p>
-				<%= link_to 'Edit account', edit_user_registration_path %>
+				<%= render 'shared/stats'%>
 			</div>
 		</div> <!-- col-md-3 -->
 

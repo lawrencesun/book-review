@@ -274,6 +274,28 @@ table.books {
   min-width: 0px;
 }
 
+/* stats */
+.stats {
+  overflow: auto;
+  a{
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0; 
+    }
+    &:hover {
+      text-decoration: none;
+      color: $blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
 // make all images responsive by default
 img {
   @extend .img-responsive;
