@@ -1,7 +1,7 @@
 class Book < ActiveRecord::Base
 	has_many :book_categories
 	has_many :categories, through: :book_categories
-	has_many :comments, dependent: :destroy
+	has_many :comments, as :commentable, dependent: :destroy
 
 	has_attached_file :photo, :styles => { :medium => "212x316!", :thumb => "106x158!" },
 		:url => "/assets/books/:id/:style/:basename.:extension",

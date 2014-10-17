@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   	resources :comments
   end
 
-  resources :movies
+  resources :movies do
+    resources :comments
+  end
 
   resources :categories
 
