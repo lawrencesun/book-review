@@ -1,2 +1,2 @@
-$("#comments").html("<%= escape_javascript render 'shared/comments', object: @comments %>");
+$("#comments").html("<%= escape_javascript render 'books/comments' %>");
 $("#paginator").html("<%= escape_javascript(paginate(@comments, remote: true).to_s) %>");

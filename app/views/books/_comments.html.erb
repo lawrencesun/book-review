@@ -1,5 +1,5 @@
-<% if object.any? %>
-	<% object.each do |comment| %>
+<% if @comments.any? %>
+	<% @comments.each do |comment| %>
 		<% unless comment.body.blank? %>
 			<table class="comments">
 				<tr class="comments">
@@ -15,10 +15,10 @@
    									<span class="fa fa-bars"></span>   						
    								</a>
 									<ul class="dropdown-menu pull-right midwidth">
-										<li><%= link_to edit_book_comment_path(comment) do %>
+										<li><%= link_to edit_book_comment_path(@book, comment) do %>
 											<i class="fa fa-pencil"></i> Edit
 										<% end %> </li>
-										<li><%= link_to book_comment_path(comment), method: 'delete', data: { confirm: "Are you sure?" } do %>
+										<li><%= link_to book_comment_path(@book, comment), method: 'delete', data: { confirm: "Are you sure?" } do %>
 											<i class="fa fa-trash-o"></i> Delete
 										<% end %> </li>
 									</ul> <!-- dropdown-menu -->
