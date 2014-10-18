@@ -37,13 +37,7 @@
 					<%= paginate @comments, remote: true %>
 				</div>
 				<br/>
-				<%= form_for [@book, @comment] do |f| %>
-					<%= render 'layouts/error', object: @comment %>
-					<div class="form-group">
-						<%= f.text_area :body, rows: 10, class: "form-control" %>
-					</div>
-					<%= f.submit "New Comment", class: "btn btn-primary" %>
-				<% end %>
+				<%= render 'comments/form' %>
 			</div> <!-- well well-sm -->
 		</div> <!-- col-md-9 -->
 

@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
 	belongs_to :user
-	belongs_to :commentable, ploymorphic: true
+	belongs_to :commentable, polymorphic: true
 	
 	validates :body, presence: true
 
