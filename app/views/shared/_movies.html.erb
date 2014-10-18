@@ -7,7 +7,7 @@
 
 			<td class="content">
 				<header>
-					<span class="badge pull-right">15</span>
+					<span class="badge pull-right"><%= movie.comments_count %></span>
 					<h4><%= link_to "#{movie.name}", movie_path(movie) %></h4>
 					<small>Year: &nbsp;<%= movie.time %></small><br>
 					<small>Director: &nbsp;<%= movie.director %></small><br>
