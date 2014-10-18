@@ -26,7 +26,16 @@
 			
 
 			<div class="well well-sm">
-				comment
+				<h4> &nbsp; Comment <span class="badge"><%= @movie.comments_count %></span></h4>
+				<hr/>
+				<div id="comments">
+					<%= render 'movies/comments' %>
+				</div>
+				<div id="paginator" class="pull-right">
+					<%= paginate @comments, remote: true %>
+				</div>
+				<br/>
+				<%= render 'comments/form' %>
 			</div> <!-- well well-sm -->
 		</div> <!-- col-md-9 -->
 

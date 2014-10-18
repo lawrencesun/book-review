@@ -1,0 +1,47 @@
+<% if @comments.any? %>
+	<% @comments.each do |comment| %>
+		<% unless comment.body.blank? %>
+			<table class="comments">
+				<tr class="comments">
+					<td class="avatar">
+						<span class="pull-left"><%= image_tag comment.user.avatar.url(:small), class: "avatar-normal" %></span>
+					</td>
+
+					<td class="content">
+						<header>
+							<div class="pull-right">
+								<div class="dropdown">
+									<a class="" data-toggle="dropdown" href="#">
+   									<span class="fa fa-bars"></span>   						
+   								</a>
+									<ul class="dropdown-menu pull-right midwidth">
+										<li><%= link_to edit_movie_comment_path(@movie, comment) do %>
+											<i class="fa fa-pencil"></i> Edit
+										<% end %> </li>
+										<li><%= link_to movie_comment_path(@movie, comment), method: 'delete', data: { confirm: "Are you sure?" } do %>
+											<i class="fa fa-trash-o"></i> Delete
+										<% end %> </li>
+									</ul> <!-- dropdown-menu -->
+								</div> <!-- dropdown -->
+							</div> <!-- pull-right -->
+
+
+							<div class="pull-left">
+								<small>
+									<%= link_to comment.user.name, user_path(comment.user) %>
+									<span class="timestamp">
+										<%= time_ago_in_words(comment.created_at) %>
+									</span>
+								</small>
+							</div> <!-- pull-left -->
+							</br>
+						</header>
+						<p><%= markdown(comment.body) %></p>
+					</td> <!-- td content-->
+				</tr>
+			</table>
+
+		<% end %> <!--end of unless-->
+
+	<% end %> <!-- end of do -->
+<% end %> <!-- end of if-->

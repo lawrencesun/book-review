@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+	before_filter :authenticate_user!, except:[:show, :index]
 	before_action :find_movie, only:[:show, :edit, :update, :destroy]
 
 
@@ -11,6 +12,13 @@ class MoviesController < ApplicationController
 	end
 
 	def show
+		@comment = Comment.new
+		@commentable = @movie
+		@comments = @commentable.comments.page(params[:page]).per(10)
+		respond_to do |format|
+			format.html
+			format.js
+		end
 	end
 
 	def new
