@@ -1,2 +1,4 @@
-$("#microposts").html("<%= escape_javascript render 'microposts', object: @microposts %>");
-$("#paginator").html("<%= escape_javascript(paginate(@microposts, remote: true).to_s) %>");
+//$("#microposts").html("<%= escape_javascript render 'microposts', object: @microposts %>");
+//$("#paginator").html("<%= escape_javascript(paginate(@microposts, remote: true).to_s) %>");
+$("#comments").html("<%= escape_javascript render 'comments', object: @comments %>");
+$("#paginator").html("<%= escape_javascript(paginate(@comments, remote: true).to_s) %>");

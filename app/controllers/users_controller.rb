@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   def show
 	  @user = User.find(params[:id])
 	  @micropost = Micropost.new
-    @microposts = @user.microposts.page(params[:page]).per(10)
+    @microposts = @user.microposts.page(params[:page]).per(5)
+    @comments = @user.comments.order('created_at DESC').page(params[:page]).per(10)
     respond_to do |format|
 			format.html 	
 			format.js

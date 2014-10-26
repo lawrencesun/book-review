@@ -14,9 +14,7 @@
 			<div class="well">
 				<%= render 'shared/stats'%>
 			</div>
-		</div> <!-- col-md-4 -->
 
-  	<div class="col-md-6">
 			<div class="well">
 				<%= form_for(@micropost) do |f| %>
 					<div class="form-group">
@@ -27,16 +25,35 @@
 				<br>
 			</div> <!-- well -->
 
-			<% if @microposts.any? %>
-				<div class="well">
+			<div class="well">
+				<p>Latest Microposts</p><hr>
+				<% if @microposts.any? %>
 					<div id="microposts">
 						<%= render 'microposts', object: @microposts %>
 					</div> <!-- div microposts -->	
+					<!-- 
 					<div id="paginator" class="pull-right">
 						<%= paginate @microposts, remote: true %>
 					</div>
-				</div> <!-- well -->
-			<% end %> <!-- end of @microposts.any? -->
+					-->			
+				<% end %> <!-- end of @microposts.any? -->
+			</div> <!-- well -->
+
+		</div> <!-- col-md-4 -->
+
+  	<div class="col-md-6">
+			<div class="well">
+				<p>Latest Comments</p><hr>
+				<% if @comments.any? %>
+					<div id="comments">
+						<%= render 'comments', object: @comments %>
+					</div> <!-- div microposts -->	
+					<div id="paginator" class="pull-right">
+						<%= paginate @comments, remote: true %>
+					</div>
+				<% end %> <!-- end of @comments.any? -->
+			</div> <!-- well -->
+
 		</div> <!-- col-md-6 -->
 
 

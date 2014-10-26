@@ -1,0 +1,7 @@
+<% object.each do |c| %>
+	<%= markdown(c.body) %>
+	<small class="timestamp">
+		<%= c.created_at.to_formatted_s(:db) %>
+	</small>
+	<hr>
+<% end %> 
