@@ -1,13 +1,20 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<div class="well">
-				<%= image_tag @user.avatar.url(:thumb) %>
-				<p>Microposts: <%= @user.microposts_count %></p>
-				<%= render 'shared/stats'%>
-				<%= render 'follow_form'%>
+				<div class="user-avatar">
+					<%= image_tag @user.avatar.url(:small), class: "avatar-normal" %>
+				</div>
+				<h2><%= @user.name %></h2>
+				<div class="text-align: center">
+					<%= render 'follow_form'%>
+				</div>
 			</div>
-		</div> <!-- col-md-3 -->
+
+			<div class="well">
+				<%= render 'shared/stats'%>
+			</div>
+		</div> <!-- col-md-4 -->
 
   	<div class="col-md-6">
 			<div class="well">

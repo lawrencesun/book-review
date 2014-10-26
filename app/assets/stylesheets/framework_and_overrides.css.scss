@@ -185,6 +185,12 @@ footer {
   -moz-border-radius: 75px;
 }
 
+.user-avatar {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+}
+
 /* comments */
 table.comments {
   width: 100%;
@@ -301,14 +307,17 @@ table.books {
 
 /* stats */
 .stats {
+  text-align: center;
   overflow: auto;
+  width: 240px;
+  height: 40px;
+  margin: auto;
   a{
     float: left;
-    padding: 0 10px;
+    padding: 0 12px;
     border-left: 1px solid $gray;
     color: gray;
     &:first-child {
-      padding-left: 0;
       border: 0; 
     }
     &:hover {
