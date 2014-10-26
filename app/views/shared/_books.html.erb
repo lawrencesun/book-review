@@ -1,6 +1,6 @@
 <% object.each do |book| %>
-	<table class="books">
-		<tr class="books">
+	<table class="books-index">
+		<tr class="books-index">
 			<td class="cover">
 				<span class="pull-left"><%= image_tag book.photo.url(:thumb) %></span>
 			</td>
@@ -11,7 +11,6 @@
 					<h4><%= link_to "#{book.name}", book_path(book) %></h4>
 					<small>Author: &nbsp;<%= book.author %></small><br>
 				</header>
-				<p><%= markdown(book.description) %></p>
 	  	</td>
 		</tr>
 	</table>

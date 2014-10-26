@@ -1,6 +1,6 @@
 <% object.each do |movie| %>
-	<table class="books">
-		<tr class="books">
+	<table class="books-index">
+		<tr class="books-index">
 			<td class="cover">
 				<span class="pull-left"><%= image_tag movie.photo.url(:thumb) %></span>
 			</td>
@@ -14,7 +14,6 @@
 					<small>Writers: &nbsp;<%= movie.writers %></small><br>
 					<small>Stars: &nbsp;<%= movie.stars %></small><br>
 				</header>
-				<p><%= markdown(movie.description) %></p>
 	  	</td>
 		</tr>
 	</table>

@@ -1,4 +1,3 @@
-
 <div class="container">
 	<div class="row">
 		
@@ -7,17 +6,18 @@
 				<table class="books">
 					<tr class="books">
 						<td class="cover">
-							<span class="pull-left"><%= image_tag @book.photo.url(:thumb) %></span>
+							<span class="pull-left"><%= image_tag @book.photo.url(:medium) %></span>
 						</td>
 
 						<td class="content">
 							<header>
-							<h4><%= @book.name %></h4>
-							<small>Author: &nbsp;<%= @book.author %></small><br>
-							<small>Categories: </small>
+							<h3><%= @book.name %></h3>
+							<p>Author: &nbsp;<%= @book.author %></p>
+							<p>Categories: 
 							<% @book.categories.each do |category| %>
 	      				<%= link_to category.name, category_path(category), class: "label" %>
 	      			<% end %>
+	      			</p>
 							</header>
 	  				</td>
 					</tr>
@@ -42,7 +42,6 @@
 		</div> <!-- col-md-9 -->
 
 		<div class="col-md-3">
-  		<p> sidebar </p>
   		<%= link_to t('edit'), edit_book_path(@book), class: "btn btn-info" %> | <%= link_to t('delete'), book_path(@book), method: 'delete', data: {confirm: 'comfirm?'}, class: "btn btn-danger" %>
   	</div> <!-- col-md-3 --> 
 

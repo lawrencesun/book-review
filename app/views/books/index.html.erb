@@ -3,8 +3,8 @@
 
   	<div class="col-md-9">
 			<div class="well">
-				<div id="books">
-					<div id="books">
+				<div id="books-index">
+					<div id="books-index">
 						<%= render 'shared/books', object: @books %>
 					</div>
 				</div> <!-- id books -->
@@ -16,7 +16,7 @@
 		</div> <!-- col-md-9 -->
 
 		<div class="col-md-3">
-			<p> sidebar </p>
+			<%= link_to t('new'), new_book_path, class: "btn btn-success" %>
 		</div> <!-- col-md-3 -->
 
 	</div> <!-- row -->

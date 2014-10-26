@@ -6,16 +6,16 @@
 				<table class="books">
 					<tr class="books">
 						<td class="cover">
-							<span class="pull-left"><%= image_tag @movie.photo.url(:thumb) %></span>
+							<span class="pull-left"><%= image_tag @movie.photo.url(:medium) %></span>
 						</td>
 
 						<td class="content">
 							<header>
-								<h4><%= @movie.name %></h4>
-								<small>Year: &nbsp;<%= @movie.time %></small><br>
-								<small>Director: &nbsp;<%= @movie.director %></small><br>
-								<small>Writers: &nbsp;<%= @movie.writers %></small><br>
-								<small>Stars: &nbsp;<%= @movie.stars %></small><br>
+								<h3><%= @movie.name %></h3>
+								<p>Year: &nbsp;<%= @movie.time %></p>
+								<p>Director: &nbsp;<%= @movie.director %></p>
+								<p>Writers: &nbsp;<%= @movie.writers %></p>
+								<p>Stars: &nbsp;<%= @movie.stars %></p>
 							</header>
 	  				</td>
 					</tr>
@@ -40,7 +40,6 @@
 		</div> <!-- col-md-9 -->
 
 		<div class="col-md-3">
-  		<p> sidebar </p>
   		<%= link_to t('edit'), edit_movie_path(@movie), class: "btn btn-info" %> | <%= link_to t('delete'), movie_path(@movie), method: 'delete', data: {confirm: 'comfirm?'}, class: "btn btn-danger" %>
   	</div> <!-- col-md-3 --> 
 

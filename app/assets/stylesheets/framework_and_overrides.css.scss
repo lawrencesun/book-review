@@ -210,8 +210,8 @@ table.comments {
   }
 }
 
-/* comments */
-table.books {
+/* books index */
+table.books-index {
   width: 100%;
 
   tr {
@@ -225,6 +225,31 @@ table.books {
     &.cover {
       width: 106px;
       height: 158px;
+      padding-right: 10px;
+      line-height: 0;
+    }
+
+    &.content {
+      word-break: break-word;
+    }
+  }
+}
+
+/* books show */
+table.books {
+  width: 100%;
+
+  tr {
+    border-bottom: 1px dotted #ddd;
+  }
+
+  td {
+    padding: 10px;
+    vertical-align: top;
+
+    &.cover {
+      width: 200px;
+      height: 300px;
       padding-right: 10px;
       line-height: 0;
     }
