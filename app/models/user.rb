@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_attached_file :avatar, 
-		:default_url => 'missing.jpg',
+		:default_url => 'http://topics-1024.qiniudn.com/avatarmissing.jpg',
   	:path => ":class/:attachment/:id/:basename.:extension"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   	
