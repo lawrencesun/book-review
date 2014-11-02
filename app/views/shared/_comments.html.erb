@@ -4,7 +4,7 @@
 			<table class="comments">
 				<tr class="comments">
 					<td class="avatar">
-						<span class="pull-left"><%= image_tag comment.user.avatar.url(:small), class: "avatar-normal" %></span>
+						<span class="pull-left"><%= qiniu_image_tag comment.user.avatar.url, :thumbnail => '64x64!', :quality => 80, class: "avatar-normal" %></span>
 					</td>
 
 					<td class="content">

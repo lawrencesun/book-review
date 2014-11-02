@@ -3,12 +3,9 @@ class Book < ActiveRecord::Base
 	has_many :categories, through: :book_categories
 	has_many :comments, {:as => :commentable, :dependent => :destroy}
 
-	has_attached_file :photo, :styles => { :medium => "212x316!", :thumb => "106x158!" },
-		:url => "/assets/books/:id/:style/:basename.:extension",
-  	:path => ":rails_root/public/assets/books/:id/:style/:basename.:extension"
-	validates_attachment :photo, 
-  :content_type => { :content_type => ["image/jpeg", "image/jpg", "image/gif", "image/png"] },
-  :size => { :less_than => 5.megabytes }
+	has_attached_file :photo, 
+  	:path => ":class/:attachment/:id/:basename.:extension"
+	validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
   scope :active, -> { where("comments_count >= ?", 5) }
 

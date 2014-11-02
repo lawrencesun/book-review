@@ -23,7 +23,7 @@ gem 'kaminari'
 gem 'redcarpet'
 
 gem 'paperclip', '~> 4.2'
-
+gem 'paperclip-qiniu'
 
 
 

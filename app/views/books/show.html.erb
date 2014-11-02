@@ -6,7 +6,7 @@
 				<table class="books">
 					<tr class="books">
 						<td class="cover">
-							<span class="pull-left"><%= image_tag @book.photo.url(:medium) %></span>
+							<span class="pull-left"><%= qiniu_image_tag @book.photo.url, :thumbnail => '212x316!', :quality => 80 %></span>
 						</td>
 
 						<td class="content">
