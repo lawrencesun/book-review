@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 	def index
-		@books = Book.last(10)
-		@comments = Comment.last(10)
+		@books = Book.order('created_at DESC').limit(10)
+		@comments = Comment.order('created_at DESC').limit(10)
 	end
 end
