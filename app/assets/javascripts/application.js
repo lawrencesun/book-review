@@ -12,6 +12,7 @@
 //
 
 //= require jquery
+//= require jquery.atwho
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -21,3 +22,16 @@
 $(document).on('page:fetch',   function() { NProgress.start(); });
 $(document).on('page:change',  function() { NProgress.done(); });
 $(document).on('page:restore', function() { NProgress.remove(); });
+
+    
+$(function(){
+  var commenter = [];
+	var commenter_exist= [];
+	$('.comment-user').each(function() {
+  	if($.inArray($(this).text(), commenter_exist) < 0){
+      commenter.push($(this).text());
+      commenter_exist.push($(this).text());
+    }
+	});
+  $('textarea').atwho({at:"@", 'data':commenter});
+});
