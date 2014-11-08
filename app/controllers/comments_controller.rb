@@ -6,6 +6,10 @@ class CommentsController < ApplicationController
 	def index
 	end
 
+	def show
+		redirect_to @commentable
+	end
+
 	def new
 	end
 

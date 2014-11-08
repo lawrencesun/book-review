@@ -1,1 +1,37 @@
-<h3>Home</h3>
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-6">
+			<div class="well">
+				<h4>Latest Topics</h4><hr>
+				<% @books.each do |book| %>
+					<span class="badge pull-right"><%= book.comments_count %></span>
+					<p><%= link_to "#{book.name}", book_path(book) %></p><hr>
+				<% end %>
+			</div> <!-- well -->
+		</div> <!-- col-md-6 -->
+
+		<div class="col-md-6">
+			<div class="well">
+				<h4>Latest Comments</h4><hr>
+				<% @comments.each do |comment| %>
+					<table class="comments">
+					<tr class="comments">
+						<td class="avatar">
+							<span class="pull-left"><%= qiniu_image_tag comment.user.avatar.url, :thumbnail => '64x64!', :quality => 80, class: "avatar-normal" %></span>
+						</td>
+
+						<td class="content">
+							<p><%= link_to markdown(comment.body), [comment.commentable, comment] %></p>
+						</td> <!-- td content-->
+					</tr>
+					</table>
+				<% end %>
+			</div> <!-- well -->
+		</div> <!-- col-md-6 -->
+
+	</div> <!-- row -->
+</div> <!-- container -->
+
+
+
