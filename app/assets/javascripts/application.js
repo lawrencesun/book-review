@@ -12,12 +12,13 @@
 //
 
 //= require jquery
-//= require jquery.atwho
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery.atwho
 //= require_tree .
 //= require bootstrap-sprockets
 //= require nprogress
+//= require turbolinks
 
 $(document).on('page:fetch',   function() { NProgress.start(); });
 $(document).on('page:change',  function() { NProgress.done(); });
@@ -25,8 +26,8 @@ $(document).on('page:restore', function() { NProgress.remove(); });
 
     
 $(function(){
-  var commenter = [];
-	var commenter_exist= [];
+  commenter = [];
+	commenter_exist= [];
 	$('.comment-user').each(function() {
   	if($.inArray($(this).text(), commenter_exist) < 0){
       commenter.push($(this).text());
