@@ -37,7 +37,9 @@
 					<%= paginate @comments, remote: true %>
 				</div>
 				<br/>
-				<%= render 'comments/form' %>
+				<div id="new_comment">
+					<%= render 'comments/form' %>
+				</div>
 			</div> <!-- well well-sm -->
 		</div> <!-- col-md-9 -->
 

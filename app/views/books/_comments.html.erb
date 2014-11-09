@@ -36,7 +36,15 @@
 							</div> <!-- pull-left -->
 							</br>
 						</header>
+
 						<p><%= markdown(comment.body) %></p>
+
+						<div class="pull-right">
+							<a class="btn", data-reply-to="@<%= comment.user.name %> " >
+								<i class="fa fa-reply"></i>
+							</a>
+						</div> <!-- pull-right-->
+
 					</td> <!-- td content-->
 				</tr>
 			</table>

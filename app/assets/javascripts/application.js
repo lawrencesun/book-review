@@ -15,6 +15,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.atwho
+//= require comments
 //= require_tree .
 //= require bootstrap-sprockets
 //= require nprogress
