@@ -1,5 +1,7 @@
 class Movie < ActiveRecord::Base
 	has_many :comments, {:as => :commentable, :dependent => :destroy}
+	has_many :posts, {:as => :postable, :dependent => :destroy}
+	
 
 	validates :name, presence: true, uniqueness: true
 	validates :director, presence: true

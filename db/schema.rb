@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018081054) do
+ActiveRecord::Schema.define(version: 20141127092317) do
 
   create_table "book_categories", force: true do |t|
     t.integer  "book_id"
@@ -71,6 +71,15 @@ ActiveRecord::Schema.define(version: 20141018081054) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "comments_count",     default: 0, null: false
+  end
+
+  create_table "posts", force: true do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "postable_id"
+    t.string   "postable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "relationships", force: true do |t|

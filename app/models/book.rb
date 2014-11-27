@@ -2,6 +2,7 @@ class Book < ActiveRecord::Base
 	has_many :book_categories
 	has_many :categories, through: :book_categories
 	has_many :comments, {:as => :commentable, :dependent => :destroy}
+	has_many :posts, {:as => :postable, :dependent => :destroy}
 
 	has_attached_file :photo, 
 		:default_url => 'http://topics-1024.qiniudn.com/bookmissing.jpg',

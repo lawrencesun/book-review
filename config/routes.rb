@@ -17,10 +17,12 @@ Rails.application.routes.draw do
     end
     
   	resources :comments
+    resources :posts
   end
 
   resources :movies do
     resources :comments
+    resources :posts
   end
 
   resources :categories
