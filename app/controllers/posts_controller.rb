@@ -1,16 +1,16 @@
 class PostsController < ApplicationController
 	before_filter :load_postable
-	before_action :find_post, only:[:edit, :update, :destroy]
+	before_action :find_post, only:[:edit, :update, :destroy, :show]
 	before_filter :authenticate_user!
 	
 	def index
 	end
 
 	def show
-		redirect_to @postable
 	end
 
 	def new
+		@post = Post.new
 	end
 
 	def create
@@ -18,9 +18,9 @@ class PostsController < ApplicationController
 		@post.user = current_user
 		if @post.save
 			flash[:notice] = "Successfully Posted."
-			redirect_to @postable
+			redirect_to [@postable, @post]
 		else
-			redirect_to @postable
+			render 'new'
 		end
 	end
 
@@ -29,8 +29,8 @@ class PostsController < ApplicationController
 
 	def update
 		if @post.update(post_params)
-			flash[:notice] = "Updated."
-			redirect_to @postable
+			flash[:notice] = "Updated Successfully."
+			redirect_to [@postable, @post]
 		else 
 			render 'edit'
 		end
@@ -53,6 +53,6 @@ class PostsController < ApplicationController
 		end
 
 		def post_params
-			params.require(:post).permit(:body)
+			params.require(:post).permit!
 		end
 end
