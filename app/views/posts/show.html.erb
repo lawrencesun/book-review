@@ -15,13 +15,20 @@
 
 		<div class="col-md-3">
 			<% if @post.postable_type == "Book" %>
-				<div class="well well-sm">
+				<div class="well well-sm" style="text-align:center">
   				<%= link_to t('edit'), edit_book_post_path(@post.postable_id, @post), class: "btn btn-info" %> | <%= link_to t('delete'), book_post_path(@post.postable_id, @post), method: 'delete', data: {confirm: 'comfirm?'}, class: "btn btn-danger" %>
   			</div>
+  			<div class="well well-sm" style="text-align:center">
+  				<%= link_to "Back to Topic", book_path(@post.postable_id) %>
+  			</div>
   		<% else @post.postable_type == "Movie" %>
-  			<div class="well well-sm">
+  			<div class="well well-sm" style="text-align:center">
   				<%= link_to t('edit'), edit_movie_post_path(@post.postable_id, @post), class: "btn btn-info" %> | <%= link_to t('delete'), movie_post_path(@post.postable_id, @post), method: 'delete', data: {confirm: 'comfirm?'}, class: "btn btn-danger" %>
   			</div>
+  			<div class="well well-sm" style="text-align:center">
+  				<%= link_to "Back to Topic", movie_path(@post.postable_id) %>
+  			</div>
+
   		<% end %>
   	</div> <!-- col-md-3 --> 
 
