@@ -14,6 +14,8 @@ class BooksController < ApplicationController
 	def show
 		@comment = Comment.new
 		@commentable = @book
+		@post = Post.new
+		@postable = @book
 		@comments = @commentable.comments.page(params[:page]).per(10)
 		respond_to do |format|
 			format.html

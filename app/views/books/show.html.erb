@@ -28,7 +28,9 @@
 			
 
 			<div class="well well-sm">
-				<h4> &nbsp; Comment <span class="badge"><%= @book.comments_count %></span></h4>
+				<h4>
+					<%= link_to t('new_post'), new_polymorphic_path([@postable, @post]), class: "btn btn-success pull-right" %> &nbsp; Comment <span class="badge"><%= @book.comments_count %></span>
+				</h4>
 				<hr/>
 				<div id="comments">
 					<%= render 'books/comments' %>
@@ -45,6 +47,8 @@
 
 		<div class="col-md-3">
   		<%= link_to t('edit'), edit_book_path(@book), class: "btn btn-info" %> | <%= link_to t('delete'), book_path(@book), method: 'delete', data: {confirm: 'comfirm?'}, class: "btn btn-danger" %>
+
+
   	</div> <!-- col-md-3 --> 
 
 	</div> <!-- row -->

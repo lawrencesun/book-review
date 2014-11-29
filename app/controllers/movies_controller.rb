@@ -14,6 +14,8 @@ class MoviesController < ApplicationController
 	def show
 		@comment = Comment.new
 		@commentable = @movie
+		@post = Post.new
+		@postable = @movie
 		@comments = @commentable.comments.page(params[:page]).per(10)
 		respond_to do |format|
 			format.html

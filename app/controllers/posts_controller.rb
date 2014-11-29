@@ -7,6 +7,13 @@ class PostsController < ApplicationController
 	end
 
 	def show
+		@comment = Comment.new
+		@commentable = @post
+		@comments = @commentable.comments.page(params[:page]).per(10)
+		respond_to do |format|
+			format.html
+			format.js
+		end
 	end
 
 	def new
