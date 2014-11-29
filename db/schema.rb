@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127121115) do
+ActiveRecord::Schema.define(version: 20141129083524) do
 
   create_table "book_categories", force: true do |t|
     t.integer  "book_id"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20141127121115) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
+    t.integer  "comments_count", default: 0, null: false
   end
 
   create_table "relationships", force: true do |t|

@@ -44,6 +44,9 @@ class CommentsController < ApplicationController
 
 	private
 		def load_commentable
+  		# klass = [Article, Photo, Event].detect { |c| params["#{c.name.underscore}_id"] }
+  		# @commentable = klass.find(params["#{klass.name.underscore}_id"])
+
     	resource, id = request.path.split('/')[1, 2]
     	@commentable = resource.singularize.classify.constantize.find(id)
   	end

@@ -15,10 +15,10 @@
    									<span class="fa fa-bars"></span>   						
    								</a>
 									<ul class="dropdown-menu pull-right midwidth">
-										<li><%= link_to edit_movie_comment_path(@movie, comment) do %>
+										<li><%= link_to edit_polymorphic_path([@commentable, comment]) do %>
 											<i class="fa fa-pencil"></i> Edit
 										<% end %> </li>
-										<li><%= link_to movie_comment_path(@movie, comment), method: 'delete', data: { confirm: "Are you sure?" } do %>
+										<li><%= link_to polymorphic_path([@commentable, comment]), method: 'delete', data: { confirm: "Are you sure?" } do %>
 											<i class="fa fa-trash-o"></i> Delete
 										<% end %> </li>
 									</ul> <!-- dropdown-menu -->
@@ -28,7 +28,7 @@
 
 							<div class="pull-left">
 								<small>
-									<%= link_to comment.user.name, user_path(comment.user) , class: "comment-user" %>
+									<%= link_to comment.user.name, user_path(comment.user), class: "comment-user" %>
 									<span class="timestamp">
 										<%= time_ago_in_words(comment.created_at) %>
 									</span>
@@ -36,7 +36,7 @@
 							</div> <!-- pull-left -->
 							</br>
 						</header>
-						
+
 						<p><%= markdown(comment.body) %></p>
 
 						<div class="pull-right">
@@ -44,6 +44,7 @@
 								<i class="fa fa-reply"></i>
 							</a>
 						</div> <!-- pull-right-->
+
 					</td> <!-- td content-->
 				</tr>
 			</table>

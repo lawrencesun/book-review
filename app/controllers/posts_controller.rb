@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_filter :load_postable
+	before_filter :load_postable, only:[:new, :create]
 	before_action :find_post, only:[:edit, :update, :destroy, :show]
 	before_filter :authenticate_user!
 	
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 		@post.user = current_user
 		if @post.save
 			flash[:notice] = "Successfully Posted."
-			redirect_to [@postable, @post]
+			redirect_to @post
 		else
 			render 'new'
 		end
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 	def update
 		if @post.update(post_params)
 			flash[:notice] = "Updated Successfully."
-			redirect_to [@postable, @post]
+			redirect_to @post
 		else 
 			render 'edit'
 		end
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
 	def destroy
 		@post.destroy
 		flash[:notice] = "Deleted."
-		redirect_to @postable
+		redirect_to @post.postable
 	end
 
 	private
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
   	end
 
 		def find_post
-			@post = @postable.posts.find(params[:id])
+			@post = Post.find(params[:id])
 		end
 
 		def post_params
