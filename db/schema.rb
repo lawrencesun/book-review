@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129083524) do
+ActiveRecord::Schema.define(version: 20141204121209) do
 
   create_table "book_categories", force: true do |t|
     t.integer  "book_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20141129083524) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "comments_count",     default: 0, null: false
+    t.integer  "posts_count",        default: 0, null: false
   end
 
   create_table "categories", force: true do |t|
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(version: 20141129083524) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "comments_count",     default: 0, null: false
+    t.integer  "posts_count",        default: 0, null: false
   end
 
   create_table "posts", force: true do |t|
