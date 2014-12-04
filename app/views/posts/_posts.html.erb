@@ -1,0 +1,27 @@
+<% if @posts.any? %>
+	<% @posts.each do |post| %>
+		<table class="comments">
+			<tr class="comments">
+				<td class="avatar">
+					<span class="pull-left"><%= qiniu_image_tag post.user.avatar.url, :thumbnail => '64x64!', :quality => 80, class: "avatar-normal" %></span>
+				</td>
+				<td class="content">
+						<header>
+							<div class="pull-left">
+								<small>
+									<%= link_to post.user.name, user_path(post.user), class: "comment-user" %>
+									<span class="timestamp">
+										<%= time_ago_in_words(post.created_at) %>
+									</span>
+								</small>
+							</div> <!-- pull-left -->
+							</br>
+						</header>
+
+						<h4><%= link_to "#{post.title}", post_path(post) %></h4>
+
+				</td> <!-- td content-->
+			</tr>
+		</table>
+	<% end %> <!-- end of do -->
+<% end %> <!-- end of if -->

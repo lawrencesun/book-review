@@ -1,2 +1,4 @@
 $("#comments").html("<%= escape_javascript render 'comments/comments' %>");
-$("#paginator").html("<%= escape_javascript(paginate(@comments, remote: true).to_s) %>");
+$("#comments-paginator").html("<%= escape_javascript(paginate(@comments, remote: true).to_s) %>");
+$("#posts").html("<%= escape_javascript render 'posts/posts' %>");
+$("#posts-paginator").html("<%= escape_javascript(paginate(@posts, remote: true).to_s) %>");

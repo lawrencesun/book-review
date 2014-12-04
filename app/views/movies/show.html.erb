@@ -26,19 +26,44 @@
 			
 
 			<div class="well well-sm">
-				<h4>
-					<%= link_to t('new_post'), new_polymorphic_path([@postable, @post]), class: "btn btn-success pull-right" %>
-					&nbsp; Comment <span class="badge"><%= @movie.comments_count %></span>
-				</h4>
-				<hr/>
-				<div id="comments">
-					<%= render 'comments/comments' %>
-				</div>
-				<div id="paginator" class="pull-right">
-					<%= paginate @comments, remote: true %>
-				</div>
-				<br/>
-				<%= render 'comments/form' %>
+				<div role="tabpanel">
+
+					<!-- nav tabs -->
+					<ul class="nav nav-pills nav-justified" role="tablist">
+						<li role="presentation" class="active"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Comments <span class="badge"><%= @movie.comments_count %></span></a></li>
+						<li role="presentation"><a href="#posts" aria-controls="posts" role="tab" data-toggle="tab">Posts</a></li>
+					</ul>
+					<!-- tab panes -->
+					<hr />
+					<div class="tab-content">
+				    <div role="tabpanel" class="tab-pane active" id="comments">
+							<div id="comments">
+								<%= render 'comments/comments' %>
+							</div>
+							<div id="comments-paginator" class="pull-right">
+								<%= paginate @comments, remote: true %>
+							</div>
+							<br/>
+							<div id="new_comment">
+								<%= render 'comments/form' %>
+							</div>
+				    </div><!-- /tabpanel comments -->
+							
+				    <div role="tabpanel" class="tab-pane" id="posts">
+							<%= link_to t('new_post'), new_polymorphic_path([@postable, @post]), class: "btn btn-success" %>
+							<hr />
+							<div id="posts">
+								<%= render 'posts/posts'%>
+							</div>
+							<div id="posts-paginator" class="pull-right">
+								<%= paginate @posts, remote: true %>
+							</div>
+
+				    </div><!-- /tabpanel posts -->			
+				  </div><!-- /tab-content -->
+
+				</div><!-- /tabpanel -->
+
 			</div> <!-- well well-sm -->
 		</div> <!-- col-md-9 -->
 
