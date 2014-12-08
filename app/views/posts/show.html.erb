@@ -29,10 +29,11 @@
 		</div> <!-- col-md-9 -->
 
 		<div class="col-md-3">
-
+				<% if policy(@post).update? %>
 				<div class="well well-sm" style="text-align:center">
   				<%= link_to t('edit'), edit_post_path(@post), class: "btn btn-info" %> | <%= link_to t('delete'), post_path(@post), method: 'delete', data: {confirm: 'comfirm?'}, class: "btn btn-danger" %>
   			</div>
+  			<% end %>
   			<div class="well well-sm" style="text-align:center">
   				<%= link_to "Back to Topic", @post.postable %>
   			</div>

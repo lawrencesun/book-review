@@ -35,6 +35,7 @@ class PostsController < ApplicationController
 	end
 
 	def update
+		authorize @post
 		if @post.update(post_params)
 			flash[:notice] = "Updated Successfully."
 			redirect_to @post
@@ -44,6 +45,7 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
+		authorize @post
 		@post.destroy
 		flash[:notice] = "Deleted."
 		redirect_to @post.postable

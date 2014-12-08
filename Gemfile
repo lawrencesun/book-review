@@ -14,6 +14,7 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
+gem 'pundit'
 
 gem 'bcrypt-ruby','3.1.2'
 gem 'autoprefixer-rails'

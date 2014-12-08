@@ -130,6 +130,8 @@ GEM
     pry-rescue (1.4.1)
       interception (>= 0.5)
       pry
+    pundit (0.3.0)
+      activesupport (>= 3.0.0)
     qiniu-rs (3.4.10)
       json (~> 1.7)
       mime-types (~> 1.19)
@@ -241,6 +243,7 @@ DEPENDENCIES
   pg (= 0.15.1)
   pry-rails
   pry-rescue
+  pundit
   quiet_assets
   rails (= 4.1.4)
   rails_12factor (= 0.0.2)
