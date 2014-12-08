@@ -134,6 +134,11 @@ footer {
   }
 }
 
+.well {
+  background-color: rgba(245, 245, 245, 0.36);
+  border:none;
+  box-shadow:none;
+}
 
 /* postinfo */
 .postinfo {
@@ -254,8 +259,8 @@ table.books {
     vertical-align: top;
 
     &.cover {
-      width: 200px;
-      height: 300px;
+      width: 159px;
+      height: 210px;
       padding-right: 10px;
       line-height: 0;
     }
