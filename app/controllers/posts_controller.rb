@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 	before_filter :load_postable, only:[:new, :create]
 	before_action :find_post, only:[:edit, :update, :destroy, :show]
-	before_filter :authenticate_user!
+	before_filter :authenticate_user!, except:[:show, :index]
 	
 	def index
 	end

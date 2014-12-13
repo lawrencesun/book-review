@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 	before_filter :load_commentable
 	before_action :find_comment, only:[:edit, :update, :destroy]
-	before_filter :authenticate_user!
+	before_filter :authenticate_user!, except:[:show, :index]
 	
 	def index
 	end
@@ -28,6 +28,7 @@ class CommentsController < ApplicationController
 	end
 
 	def update
+		authorize @comment
 		if @comment.update(comment_params)
 			flash[:notice] = "Updated."
 			redirect_to @commentable
@@ -37,6 +38,7 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
+		authorize @comment
 		@comment.destroy
 		flash[:notice] = "Deleted."
 		redirect_to @commentable

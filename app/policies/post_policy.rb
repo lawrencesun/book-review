@@ -6,10 +6,10 @@ class PostPolicy < ApplicationPolicy
   end
 
   def update?
-    @current_user.admin? or @post.user == @current_user
+    @current_user.admin? or @current_user == @post.user
   end
 
   def destroy?
-  	@current_user.admin? or @post.user == @current_user
+  	@current_user.admin? or @current_user == @post.user
   end
 end

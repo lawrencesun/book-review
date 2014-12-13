@@ -11,6 +11,7 @@
 						<header>
 							<div class="pull-right">
 								<div class="dropdown">
+									<% if policy(comment).update? %>
 									<a class="" data-toggle="dropdown" href="#">
    									<span class="fa fa-bars"></span>   						
    								</a>
@@ -23,6 +24,7 @@
 										<% end %> </li>
 									</ul> <!-- dropdown-menu -->
 								</div> <!-- dropdown -->
+								<% end %>
 							</div> <!-- pull-right -->
 
 

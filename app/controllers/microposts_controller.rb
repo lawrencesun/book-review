@@ -1,5 +1,6 @@
 class MicropostsController < ApplicationController
 	before_action :find_micropost, only:[:edit, :update, :destroy]
+	before_filter :authenticate_user!, except:[:show, :index]
 
 	def create
 		@micropost = current_user.microposts.build(micropost_params)
