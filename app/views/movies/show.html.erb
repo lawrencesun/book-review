@@ -68,7 +68,9 @@
 		</div> <!-- col-md-9 -->
 
 		<div class="col-md-3">
+			<% if policy(@movie).update? %>
   		<%= link_to t('edit'), edit_movie_path(@movie), class: "btn btn-info" %> | <%= link_to t('delete'), movie_path(@movie), method: 'delete', data: {confirm: 'comfirm?'}, class: "btn btn-danger" %>
+  		<% end %>
   	</div> <!-- col-md-3 --> 
 
 	</div> <!-- row -->

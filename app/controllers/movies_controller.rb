@@ -26,10 +26,12 @@ class MoviesController < ApplicationController
 
 	def new
 		@movie = Movie.new
+		authorize @movie
 	end
 
 	def create
 		@movie = Movie.new(movie_params)
+		authorize @movie
 		if @movie.save
 			flash[:notice] = "Created Successfully."
 			redirect_to @movie
@@ -42,6 +44,7 @@ class MoviesController < ApplicationController
 	end
 
 	def update
+		authorize @movie
 		if @movie.update(params[:movie].permit!)
 			flash[:notice] = "Updated Successfully."
 			redirect_to @movie
@@ -51,6 +54,7 @@ class MoviesController < ApplicationController
 	end
 
 	def destroy
+		authorize @movie
 		@movie.destroy
 		flash[:notice] = "Deleted Successfully."
 		redirect_to @movies

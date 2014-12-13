@@ -6,10 +6,10 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def update?
-    @current_user.admin? or @current_user == @comment.user
+    @current_user.try(:admin?) or @current_user == @comment.user
   end
 
   def destroy?
-  	@current_user.admin? or @current_user == @comment.user
+  	@current_user.try(:admin?) or @current_user == @comment.user
   end
 end

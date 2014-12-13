@@ -26,10 +26,12 @@ class BooksController < ApplicationController
 
 	def new
 		@book = Book.new
+		authorize @book
 	end
 
 	def create
 		@book = Book.new(book_params)
+		authorize @book	
 		if @book.save
 			flash[:notice] = "Created Successfully."
 			redirect_to @book
@@ -42,6 +44,7 @@ class BooksController < ApplicationController
 	end
 
 	def update
+		authorize @book
 		if @book.update(params[:book].permit!)
 			flash[:notice] = "Updated Successfully."
 			redirect_to @book
@@ -51,6 +54,7 @@ class BooksController < ApplicationController
 	end
 
 	def destroy
+		authorize @book
 		@book.destroy
 		flash[:notice] = "Deleted Successfully."
 		redirect_to books_path

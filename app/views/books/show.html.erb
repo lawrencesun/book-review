@@ -67,10 +67,10 @@
 
 			</div> <!-- well well-sm -->
 		</div> <!-- col-md-9 -->
-
+		<% if policy(@book).update? %>
 		<div class="col-md-3">
   		<%= link_to t('edit'), edit_book_path(@book), class: "btn btn-info" %> | <%= link_to t('delete'), book_path(@book), method: 'delete', data: {confirm: 'comfirm?'}, class: "btn btn-danger" %>
-
+  	<% end %>
 
   	</div> <!-- col-md-3 --> 
 
