@@ -9,9 +9,9 @@
 
 					<td class="content">
 						<header>
+							<% if policy(comment).update? %>
 							<div class="pull-right">
 								<div class="dropdown">
-									<% if policy(comment).update? %>
 									<a class="" data-toggle="dropdown" href="#">
    									<span class="fa fa-bars"></span>   						
    								</a>
