@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141208132601) do
+ActiveRecord::Schema.define(version: 20150126075940) do
 
   create_table "book_categories", force: true do |t|
     t.integer  "book_id"
@@ -96,6 +96,19 @@ ActiveRecord::Schema.define(version: 20141208132601) do
   add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+
+  create_table "topics", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "comments_count",     default: 0, null: false
+    t.integer  "posts_count",        default: 0, null: false
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
