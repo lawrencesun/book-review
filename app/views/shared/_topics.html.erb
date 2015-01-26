@@ -1,0 +1,16 @@
+<% object.each do |topic| %>
+	<table class="books-index">
+		<tr class="books-index">
+			<td class="cover">
+				<span class="pull-left"><%= qiniu_image_tag topic.photo.url, :thumbnail => '106x158!', :quality => 80 %></span>
+			</td>
+
+			<td class="content">
+				<header>
+					<span class="badge pull-right"><%= topic.comments_count %></span>
+					<h4><%= link_to "#{topic.title}", topic_path(topic) %></h4>
+				</header>
+	  	</td>
+		</tr>
+	</table>
+<% end %> <!-- object -->

@@ -1,0 +1,2 @@
+$("#books-index").html("<%= escape_javascript render 'shared/topics', object: @topics %>");
+$("#paginator").html("<%= escape_javascript(paginate(@topics, remote: true).to_s) %>");

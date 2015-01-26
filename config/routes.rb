@@ -20,6 +20,15 @@ Rails.application.routes.draw do
     resources :posts
   end
 
+  resources :topics do
+    collection do
+      get 'active'
+    end
+    
+    resources :comments
+    resources :posts
+  end
+
   resources :movies do
     resources :posts
     resources :comments

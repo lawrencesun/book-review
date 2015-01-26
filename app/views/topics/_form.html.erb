@@ -1,0 +1,22 @@
+<div class="well">
+	<%= form_for @topic do |f| %>
+		<%= render 'layouts/error', object: @topic %>
+		
+		<div class="form-group">
+			<%= f.label "title" %>
+			<%= f.text_field :title, class: "form-control" %>
+		</div>
+
+		<div class="form-group">
+			<%= f.label "description" %>
+			<%= f.text_area :description, rows: 10, class: "form-control" %>
+		</div>
+
+		<div class="form-group">
+			<%= f.label "cover" %>
+			<%= f.file_field :photo %>
+		</div>
+
+		<%= f.submit(@topic.new_record? ? "create" : "update", class: "btn btn-success") %>
+	<% end %>
+</div>
