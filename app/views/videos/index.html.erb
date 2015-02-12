@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="row">
+
+  	<div class="col-md-9">
+			<div class="well">
+				<div id="movies">
+					<div id="movies">
+						<%= render 'shared/videos', object: @videos %>
+					</div>
+				</div> <!-- id books -->
+
+				<div id="paginator" class="pull-right">
+					<%= paginate @videos, remote: true %>
+				</div>
+			</div> <!-- well -->
+		</div> <!-- col-md-9 -->
+
+		<div class="col-md-3">
+			<%= link_to t('new'), new_video_path, class: "btn btn-success" %>
+		</div> <!-- col-md-3 -->
+
+	</div> <!-- row -->
+</div> <!-- container -->

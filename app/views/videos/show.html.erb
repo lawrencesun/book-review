@@ -1,0 +1,66 @@
+<div class="container">
+	<div class="row">
+		
+  	<div class="col-md-9">
+			<div class="well">
+
+				<h3><%= @video.title %></h3>
+
+				<hr />
+				<iframe height=498 width=510 src="<%= @video.url %>" frameborder=0 allowfullscreen></iframe>
+			</div> <!--well-->
+			
+
+			<div class="well well-sm">
+				<div role="tabpanel">
+
+					<!-- nav tabs -->
+					<ul class="nav nav-pills nav-justified" role="tablist">
+						<li role="presentation" class="active"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Comments <span class="badge"><%= @video.comments_count %></span></a></li>
+						<li role="presentation"><a href="#posts" aria-controls="posts" role="tab" data-toggle="tab">Posts <span class="badge"><%= @video.posts_count %></a></li>
+					</ul>
+					<!-- tab panes -->
+					<hr />
+					<div class="tab-content">
+				    <div role="tabpanel" class="tab-pane active" id="comments">
+							<div id="comments">
+								<%= render 'comments/comments' %>
+							</div>
+							<div id="comments-paginator" class="pull-right">
+								<%= paginate @comments, remote: true %>
+							</div>
+							<br/>
+							<div id="new_comment">
+								<%= render 'comments/form' %>
+							</div>
+				    </div><!-- /tabpanel comments -->
+							
+				    <div role="tabpanel" class="tab-pane" id="posts">
+							<%= link_to t('new_post'), new_polymorphic_path([@postable, @post]), class: "btn btn-success" %>
+							<hr />
+							<div id="posts">
+								<%= render 'posts/posts'%>
+							</div>
+							<div id="posts-paginator" class="pull-right">
+								<%= paginate @posts, remote: true %>
+							</div>
+
+				    </div><!-- /tabpanel posts -->			
+				  </div><!-- /tab-content -->
+
+				</div><!-- /tabpanel -->
+
+			</div> <!-- well well-sm -->
+		</div> <!-- col-md-9 -->
+
+		<div class="col-md-3">
+
+  		<%= link_to t('edit'), edit_video_path(@video), class: "btn btn-info" %> | <%= link_to t('delete'), video_path(@video), method: 'delete', data: {confirm: 'comfirm?'}, class: "btn btn-danger" %>
+
+  		<hr />
+  		<%= link_to t('related_topics') %>
+  
+  	</div> <!-- col-md-3 --> 
+
+	</div> <!-- row -->
+</div>

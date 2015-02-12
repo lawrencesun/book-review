@@ -34,6 +34,11 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :videos do
+    resources :posts
+    resources :comments
+  end
+
   resources :posts do 
     resources :comments
   end
